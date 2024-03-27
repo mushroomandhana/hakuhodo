@@ -1,0 +1,759 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  width: 100%;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* 該頁全域 css */
+#main {
+  font-family: "Noto Sans TC", sans-serif;
+  line-height: 1.8;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+  width: 100%;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1.5;
+  background: #f2f0ef;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 該頁全域 css */
+#main {
+  font-family: "Noto Sans TC", sans-serif;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+.font-noto {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.customScrollBar::-webkit-scrollbar {
+  width: 8px; /* Mac 滾動條通常較細 */
+  height: 8px; /* 用於水平滾動條 */
+  background-color: transparent; /* 初始狀態透明 */
+}
+
+.customScrollBar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* Mac 滾動條風格，透明度較低 */
+  border-radius: 4px; /* 圓角設置 */
+  border: 2px solid transparent; /* 背景透明 */
+  background-clip: padding-box; /* 防止背景溢出邊界 */
+}
+
+.customScrollBar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4); /* 滑過時的顏色和透明度 */
+}
+
+.customScrollBar::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.5); /* 激活時的顏色和透明度 */
+}
+
+.customScrollBar {
+  overflow: auto; /* 啟用滾動 */
+}
+
+/* 根據您的需求，您可能需要自定義icon類 */
+.nav_icon {
+  width: 12%;
+}
+
+/* 標題 EVERYONE COULD BE A STRONG INFLUENCER 擺動 */
+@keyframes titleSwingR {
+  20% {
+    transform: rotate(-10deg);
+  }
+
+  40% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(-5deg);
+  }
+
+  80% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(-8deg);
+  }
+}
+
+.animate-titleSwingR {
+  animation: titleSwingR 1s ease;
+}
+
+@keyframes titleSwingL {
+  20% {
+    transform: rotate(10deg);
+  }
+
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  60% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(6deg);
+  }
+}
+
+.animate-titleSwingL {
+  animation: titleSwingL 1s ease;
+}
+
+/* 列表展開與縮起 */
+.expand-enter-active {
+  animation: open-in 0.5s;
+}
+
+.expand-leave-active {
+  animation: open-in 0s reverse;
+}
+
+@keyframes open-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.contentCard {
+  position: relative;
+}
+.slantedCardR {
+  position: absolute;
+  transform: rotate(8deg);
+  background-color: white;
+  height: 110%;
+  width: 100%;
+  z-index: 10;
+}
+.slantedCardL {
+  position: absolute;
+  transform: rotate(-6deg);
+  background-color: white;
+  height: 110%;
+  width: 100%;
+  z-index: 1;
+}
+
+.modalCardR {
+  position: absolute;
+  transform: rotate(5deg);
+  background-color: white;
+  height: 85%;
+  width: 83.33333%;
+  z-index: 1;
+}
+.job-container {
+  border: 1px solid #d9d9d9;
+}
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255);
+  color: white;
+  border: 1px solid #7e7e7e;
+  border-right: 0;
+  border-left: 0;
+  z-index: 35;
+}
+.track {
+  display: flex;
+  white-space: nowrap;
+}
+.text {
+  font-weight: 900;
+  font-size: 48px; /* 調整大小 */
+  -webkit-text-stroke: 1px #7e7e7e; /* 黑色簍空效果 */
+  color: transparent;
+  text-transform: uppercase;
+}
+
+/* sm: "640px",
+md: "768px",
+lg: "1024px",
+xl: "1280px",
+"2xl": "1536px", */
+.container {
+  width: 80%;
+}
+
+.container h2,
+.section-title {
+  font-size: 56px;
+}
+
+.first-content {
+  font-size: 32px;
+}
+
+.second-content {
+  font-size: 28px;
+}
+
+.third-content {
+  font-size: 24px;
+}
+
+.lightS {
+  line-height: 32px;
+  width: 32px;
+}
+
+.lightL {
+  width: 56px;
+}
+
+.everyoneLightningS {
+  left: 103%;
+}
+
+.everyoneLightningL {
+  left: 5%;
+}
+
+.creativityLightningS {
+  left: 103%;
+}
+
+.creativityLightningL {
+  left: 5%;
+}
+
+.careerLightningS {
+  left: -5%;
+}
+
+.careerLightningL {
+  right: 5%;
+}
+
+.heroesLightningS {
+  left: 103%;
+}
+
+.heroesLightningL {
+  left: 5%;
+}
+
+.workplaceLightningS {
+  left: 103%;
+}
+
+.workplaceLightningL {
+  left: 5%;
+}
+
+.groupLightningS {
+  left: 103%;
+}
+
+.groupLightningL {
+  left: 5%;
+}
+
+.talentLightningL {
+  left: 5%;
+}
+
+.talentLightningS {
+  left: -23%;
+}
+
+/* 實習 */
+.pilotInternShipContainer,
+.ucgInternShipContainer {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.pilotInternShip-section-title {
+  font-size: 52px;
+  color: #ff5100;
+}
+
+.ucgInternShip-section-title {
+  font-size: 52px;
+  color: #c30d23;
+  margin-top: 160px;
+}
+
+.ucgInternShip-section-mark {
+  color: #c30d23;
+  font-weight: 700;
+}
+
+.ucgContainer {
+  font-size: 36px;
+}
+
+.stepContainer {
+  font-size: 36px;
+}
+
+.step-title {
+  color: #ff5100;
+  width: auto;
+  font-weight: 700;
+}
+
+.step-content {
+  word-break: normal;
+  width: 90%;
+  color: #000000;
+  padding-left: 1%;
+}
+
+.step-content .step-content-mark {
+  color: #ff5100;
+  font-weight: 700;
+}
+
+.footer-font-size {
+  font-size: 14px;
+}
+
+.nav-cw-icon {
+  width: 110px;
+  height: 44px;
+}
+
+.nav-cheers-icon {
+  width: 98px;
+  height: 44px;
+}
+
+.nav-hakuhodo-icon {
+  width: 198px;
+  height: 38px;
+}
+
+.nav-line {
+  width: 1px;
+  height: 44px;
+}
+
+.top-nav {
+  height: 64px;
+}
+
+.master-vision {
+  width: 50%;
+}
+
+.master-vision-action {
+  width: 25%;
+}
+
+.intern-icon {
+  width: 130px;
+  height: 130px;
+}
+
+.go-top-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.organization-img {
+  width: 75%;
+  margin-left: 12.5%;
+}
+
+.brand-pic {
+  width: 15%;
+}
+
+.brand-description {
+  margin-left: 10%;
+  width: 60%;
+}
+
+.brand-button {
+  margin-left: 10%;
+  width: 5%;
+}
+
+.everyoneContentCard {
+  margin-top: -4rem;
+  z-index: 2;
+}
+
+/* 螢幕寬度大於 1536px 時，套用以下樣式 */
+@media (min-width: 1536px) {
+}
+
+/* 螢幕寬度小於 1536px 時，套用以下樣式 */
+@media (max-width: 1536px) {
+}
+
+/* 螢幕寬度小於 1280px 時，套用以下樣式 */
+@media (max-width: 1280px) {
+  .container h2,
+  .section-title {
+    font-size: 50px;
+  }
+
+  .first-content {
+    font-size: 28px;
+  }
+
+  .second-content {
+    font-size: 24px;
+  }
+
+  .third-content {
+    font-size: 22px;
+  }
+
+  .lightS {
+    line-height: 28px;
+    width: 28px;
+  }
+
+  .lightL {
+    width: 50px;
+  }
+}
+
+/* 螢幕寬度小於 1024px 時，套用以下樣式 */
+@media (max-width: 1024px) {
+  .container h2,
+  .section-title {
+    font-size: 40px;
+  }
+
+  .first-content {
+    font-size: 24px;
+  }
+
+  .second-content {
+    font-size: 16px;
+  }
+
+  .third-content {
+    font-size: 16px;
+  }
+
+  .lightS {
+    line-height: 24px;
+    width: 24px;
+  }
+
+  .lightL {
+    width: 40px;
+  }
+}
+
+/* 螢幕寬度小於 768px 時，套用以下樣式 */
+@media (max-width: 768px) {
+  #main {
+    background: white;
+  }
+
+  .talentLightningS {
+    left: -55%;
+  }
+
+  .careerLightningS {
+    left: -13%;
+  }
+
+  .everyoneContentCard {
+    margin-top: -8rem;
+  }
+
+  .slantedCardR {
+    transform: rotate(10deg);
+    height: 10%;
+    width: 200%;
+    left: -1.5%;
+  }
+
+  .modalCardR {
+    position: absolute;
+    transform: rotate(5deg);
+    background-color: white;
+    height: 90%;
+    width: 110%;
+    z-index: 1;
+  }
+
+  .brand-pic {
+    width: 30%;
+  }
+
+  .brand-description {
+    margin-left: 5%;
+    width: 50%;
+  }
+
+  .brand-button {
+    margin-left: 7.5%;
+    width: 5%;
+  }
+
+  .organization-img {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .intern-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .go-top-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .large-lightning {
+    width: 20px;
+  }
+
+  .master-vision {
+    width: 100%;
+  }
+
+  .master-vision-action {
+    width: 50%;
+    margin-left: 5%;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pilotInternShipContainer,
+  .ucgInternShipContainer {
+    width: 100%;
+    margin-left: 0%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pilotInternShip-section-title {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+
+  .ucgInternShip-section-title {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+
+  .ucgContainer {
+    font-size: 16px;
+  }
+
+  .stepContainer {
+    font-size: 16px;
+  }
+
+  .container h2,
+  .section-title {
+    font-size: 20px;
+  }
+
+  .first-content {
+    font-size: 16px;
+  }
+
+  .second-content {
+    font-size: 16px;
+  }
+
+  .third-content {
+    font-size: 14px;
+  }
+
+  .lightS {
+    line-height: 16px;
+    width: 16px;
+  }
+
+  .lightL {
+    width: 30px;
+  }
+
+  .contentCard {
+    background: white;
+  }
+
+  .text {
+    font-size: 20px;
+  }
+
+  .nav-cw-icon {
+    width: 76px;
+    height: 28px;
+    margin-left: 20px;
+  }
+
+  .nav-cheers-icon {
+    width: 62px;
+    height: 28px;
+  }
+
+  .nav-hakuhodo-icon {
+    width: 144px;
+    height: 28px;
+  }
+
+  .nav-line {
+    width: 1px;
+    height: 28px;
+  }
+
+  .top-nav {
+    height: 56px;
+  }
+}
